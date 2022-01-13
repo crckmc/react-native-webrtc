@@ -611,7 +611,7 @@ public class WebRTCView extends ViewGroup {
                             String saveTarget = "cameraRoll";
                             double jpegQuality = 1;
                             int maxSize = 5000;
-
+                            String filename = UUID.randomUUID().toString();
                             if (snapshotOption.hasKey("saveTarget")) {
                                 saveTarget = snapshotOption.getString("saveTarget");
                             }
@@ -621,8 +621,11 @@ public class WebRTCView extends ViewGroup {
                             if (snapshotOption.hasKey("maxSize")) {
                                 maxSize = snapshotOption.getInt("maxSize");
                             }
+                            if (snapshotOption.hasKey("fileName")) {
+                                filename = snapshotOption.getString("fileName");
+                            }
 
-                            String file = SnapshotUtils.savePicture(reactContext, bitmap, saveTarget, jpegQuality, maxSize);
+                            String file = SnapshotUtils.savePicture(reactContext, bitmap, filename, saveTarget, jpegQuality, maxSize);
                             params.putString("file", file);
                         } catch (Exception e) {
                             params.putString("error", String.format("onFrame() failed: %s", e.getMessage()));

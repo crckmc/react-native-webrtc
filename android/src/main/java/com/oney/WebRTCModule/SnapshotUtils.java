@@ -31,12 +31,12 @@ class SnapshotUtils {
         return Base64.getEncoder().encodeToString(pic);
     }
 
-    public static synchronized String savePicture(ReactContext reactContext, Bitmap bitmap, String saveTarget, double maxJpegQuality, int maxSize) throws IOException {
+    public static synchronized String savePicture(ReactContext reactContext, Bitmap bitmap, String fileame, String saveTarget, double maxJpegQuality, int maxSize) throws IOException {
         // --- only resize if image larger than maxSize
         bitmap = resizeBitmap(bitmap, maxSize);
         int jpegQuality = (int) (100 * maxJpegQuality);
 
-        String filename = UUID.randomUUID().toString();
+        //String filename = UUID.randomUUID().toString();
         File file = null;
         switch (saveTarget) {
             case RCT_CAMERA_SAVE_TARGET_CAMERA_ROLL: {
