@@ -33,6 +33,9 @@ import org.webrtc.RendererCommon.ScalingType;
 import org.webrtc.SurfaceViewRenderer;
 import org.webrtc.VideoTrack;
 
+import java.util.Base64;
+import java.util.UUID;
+
 public class WebRTCView extends ViewGroup {
     /**
      * The scaling type to be utilized by default.
